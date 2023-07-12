@@ -17,6 +17,24 @@ function App() {
     .then(res=>res.json())
     .then(data=>setComics(data))
   ), [])
+
+  function handleSubmit(e){
+    e.preventDefault()
+    //console.assert(e.target[0].value != '', 'testing image value input', e.target[0].value)
+    fetch('http://localhost:8004/comics/', {
+      method: "POST",
+      headers: {"Content-Type" : 'application/json'},
+      body: JSON.stringify({
+        title: newTitle,
+        issue: newIssue,
+        image_url: newImage,
+        description: newDescription
+      })
+    })
+    .then(res=>res.json())
+    .then(newComic=> setComics([...comics, newComic]))
+    e.target.reset()
+  }
   
   //POST either in an event handler or in another function that is called by the event handler
   //do not forget preventDefault or that you do not close the paranthese on the fetch until AFTER the JSON.stringify({newComic})
@@ -42,7 +60,8 @@ function App() {
           issue={newIssue}
           setsIssue={setsNewIssue}
           description={newDescription}
-          setsDescription={setsNewDescription}/>
+          setsDescription={setsNewDescription}
+          handleSubmit={handleSubmit}/>
         </div>
 
       </div>
