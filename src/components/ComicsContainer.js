@@ -1,11 +1,23 @@
 import Comic from "./Comic"
 
-function ComicsContainer() {
+function ComicsContainer({comics}) {
+    // comics.id
+  // comics.title
+  // comics.issue
+  // comics.image_url
+
+  //image, title, issue
 
   return (
     <>
-      <Comic />
-    </>
+    {comics.map((comic)=>
+      <Comic
+      key={comic.id} 
+      image={comic.image_url} 
+      title={comic.title}
+      issue={comic.issue}
+      />)
+}</>
   )
 
 }
