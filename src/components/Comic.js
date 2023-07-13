@@ -1,6 +1,6 @@
 import {useState} from 'react'
 
-function Comic({image, title, issue}) {
+function Comic({image, title, issue, id, handlesRemoveClick}) {
 console.assert(title !== null)
 
 const [imageOrDetails, setImageOrDetails]= useState('true')
@@ -20,7 +20,7 @@ function handlesImageOrDetailsEvent(){
       
       <div><h3>{title}</h3>
       <h4>{issue}</h4>
-      <button>Remove</button>
+      <button onClick={(e)=> handlesRemoveClick(id)}>Remove</button>
       </div>
     }
 

@@ -21,7 +21,7 @@ function ComicForm({image, setsImage, title, setsTitle, issue, setsIssue, descri
 
       <label htmlFor="title">Title: </label>
       <input name="title" value={title} onChange={(e)=>setsTitle(e.target.value)}/>
-      {console.log(title)}
+      {/*console.log(title)*/}
 
       <label htmlFor="issue">Issue Number: </label>
       <input name="issue" type="number" value={issue} onChange={(e)=>setsIssue(e.target.value)}/>

@@ -1,6 +1,6 @@
 import Comic from "./Comic"
 
-function ComicsContainer({comics}) {
+function ComicsContainer({comics, handlesRemoveClick}) {
     // comics.id
   // comics.title
   // comics.issue
@@ -13,9 +13,11 @@ function ComicsContainer({comics}) {
     {comics.map((comic)=>
       <Comic
       key={comic.id} 
+      id={comic.id}
       image={comic.image_url} 
       title={comic.title}
       issue={comic.issue}
+      handlesRemoveClick={handlesRemoveClick}
       />)
 }</>
   )
